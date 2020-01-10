@@ -57,12 +57,16 @@ $("#resetons").on('click', function() {
         this.form.reset();
     });
     $("#Duree").val(30);
-    myMarkers();
-    console.log(lastInfoWindow);
-    markers[j].removeListener("mouseover");
-    markers[j].removeListener("mouseout");
-    directionsDisplay.setMap(null);
+    //reset the marker placed by the user
     createdMarker.setMap(null);
+    createdMarker = "";
+    //reset the diplayed path between the created marker and the selected one
+    directionsDisplay.setMap(null);
+    directionsDisplay = "";
+    //reshow all markers
+    myMarkers();
+    //delete the click listener, the user cannot place a marker anymore
+    google.maps.event.clearListeners(map, 'click');
 });
 
 $("#qts").on("change", function () {
@@ -192,84 +196,96 @@ let infowindow;
 let lastInfoWindow;
 let createdMarker="";
 let directionsDisplay="";
-let roadColor = ["red","blue","brown","green","pink"];
-$('#Borne').on("change",()=>{
-    myMarkers($('#Borne')[0].value);
-    if(createdMarker != ""){
+let handler = function(event) {
+    //check if this is the first time the function is called
+    if(createdMarker == ""){
+        //create a new marker with the user selected position
+        createdMarker = new google.maps.Marker({
+            position: event.latLng,
+            map: map,
+            icon: new google.maps.MarkerImage("../libs/img/creaMarker.png")
+        });
+        createRoad();
+    } else {
+        //delete the actual marker previously placed by the user
         createdMarker.setMap(null);
+        //create a new marker with the user selected position
+        createdMarker = new google.maps.Marker({
+            position: event.latLng,
+            map: map,
+            icon: new google.maps.MarkerImage("../libs/img/creaMarker.png")
+        });
+        createRoad();
+    }
+};
+function createRoad(){
+    let roadColor = ["red","blue","brown","green","pink"];
+    //if there's already a path shown delete it
+    if(directionsDisplay != ""){
         directionsDisplay.setMap(null);
     }
-    google.maps.event.addListener(map, 'click', function(event) {
-        if(createdMarker == ""){
-            createdMarker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-                icon: new google.maps.MarkerImage("../libs/img/creaMarker.png")
-            });
-            createRoad();
-        } else {
 
-            createdMarker.setMap(null);
-            createdMarker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-                icon: new google.maps.MarkerImage("../libs/img/creaMarker.png")
-            });
-            createRoad();
+    //setting the option of how the path should be done
+    let directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer({'map': map});
+    let request = {
+        origin: {lat:createdMarker.getPosition().lat(),lng:createdMarker.getPosition().lng()},
+        destination: {lat:markers[0].getPosition().lat(),lng:markers[0].getPosition().lng()},
+        travelMode: google.maps.DirectionsTravelMode.DRIVING,
+        unitSystem: google.maps.DirectionsUnitSystem.METRIC
+    };
+    //create and show the path
+    directionsService.route(request, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setOptions({polylineOptions: {
+                    strokeColor: roadColor[Math.floor(Math.random() * roadColor.length)],
+                },'suppressMarkers': true});
         }
     });
+}
 
-    function createRoad(){
-        if(directionsDisplay != ""){
-            directionsDisplay.setMap(null);
-        }
-        let directionsService = new google.maps.DirectionsService();
-        directionsDisplay = new google.maps.DirectionsRenderer({'map': map});
-        let request = {
-            origin: {lat:createdMarker.getPosition().lat(),lng:createdMarker.getPosition().lng()},
-            destination: {lat:markers[0].getPosition().lat(),lng:markers[0].getPosition().lng()},
-            travelMode: google.maps.DirectionsTravelMode.DRIVING,
-            unitSystem: google.maps.DirectionsUnitSystem.METRIC
-        };
-        directionsService.route(request, function (response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-                directionsDisplay.setOptions({polylineOptions: {
-                        strokeColor: roadColor[Math.floor(Math.random() * roadColor.length)],
-                    },'suppressMarkers': true});
-            }
-        });
+$('#Borne').on("change",()=>{
+    //when choosing a terminals
+    //call to change the displayed marker
+    myMarkers($('#Borne')[0].value);
+    //if there's already a marker created
+    if(directionsDisplay != ""){
+        directionsDisplay.setMap(null);
+        directionsDisplay = "";
     }
+    //call handler() when the user click on the map
+    google.maps.event.addListener(map, 'click', handler);
 });
 
 //Called when calling the Google API
 function initMap() {
+    //initiate the map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: {lat: 50.6333, lng: 3.0667}
     });
+    //call to iniate the markers
     myMarkers();
 }
 
 function myMarkers(bornVal){
-
+    //if there's already marker defined delete them all
     if(markers!=undefined){
         for (let j = 0; j < markers.length; j++) {
-            console.log(markers);
             markers[j].setMap(null);
         }
     }
-
+    //get all the infos of the terminals from a json
     let locations = [];
     $.post("../libs/php/get_places.php", {table:"myLocations"}).done(function(resp){
         locations = Pos.fromJsonToArray(JSON.parse(resp));
+        //check if we come from changing the select terminal
+        //if yes you only take the corresponding positions
         if(bornVal != undefined){
             locations=[locations[parseInt(bornVal)-1]];
         }
-        // Add some markers to the map.
-        // Note: The code uses the JavaScript Array.prototype.map() method to
-        // create an array of markers based on a given "locations" array.
-        // The map() method here has nothing to do with the Google Maps API.
+        //create an array of marker corresponding to the object in the array of terminals
         markers = locations.map(function(location, i) {
             bornVal?i=bornVal:i++;
             i = i.toString();
@@ -279,6 +295,8 @@ function myMarkers(bornVal){
                 icon: new google.maps.MarkerImage("../libs/img/iconMaison.png")
             });
         });
+
+        
         for (let j = 0; j < markers.length; j++) {
             //Open InfoWindow onClick
             /*markers[j].addListener('click', function() {
@@ -306,6 +324,7 @@ function myMarkers(bornVal){
                 infowindow.open(map, markers[j]);
                 lastInfoWindow=infowindow;
             });
+            //Close Window onMouseOut
             markers[j].addListener("mouseout", function(){
                 lastInfoWindow.close(map, markers[j]);
             })
