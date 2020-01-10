@@ -1,0 +1,20 @@
+a.card{
+  transition-property: box-shadow,transform;
+  transition-duration: 1s;
+}
+a.card:hover{
+  text-decoration:none;
+  box-shadow: 0 0 2px 2px #17a2b8;
+  transform:scale(1.05,1.05);
+}
+.taille-slide{
+  height:33vh
+}
+.sliderimg{
+  width:100%
+}
+@media screen and (max-width: 1235px) {
+  #carouselExampleSlidesOnly {
+    display: none;
+  }
+}

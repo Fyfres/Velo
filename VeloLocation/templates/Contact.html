@@ -1,0 +1,408 @@
+<!doctype html>
+<html class="no-js" lang="FR-fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>OnSEnFou - Accueil</title>
+  <meta name="description" content="Location de vélo électrique et classique dans la ville de Lille">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../libs/css/Contact.css">
+  <link rel="stylesheet" href="../libs/css/main.css">
+  <link rel="icon" href="../libs/img/logo.png">
+</head>
+
+<body>
+<!--Header-->
+<header class="w-100">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <!--Logo linked to Home-->
+    <a class="navbar-brand" href="../index.html">
+      <img src="../libs/img/logo.png" id="logo" alt="Logo_de_On_S'En_Fou">
+    </a>
+    <a href="https://fr-fr.facebook.com/%22%3E"><span class="fa fa-facebook-official fa-2x mr-3"
+                                                      aria-hidden="true"></span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Navbar which collapse when the screen is to small-->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Produit.html">Produits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">Contact</a>
+        </li>
+      </ul>
+      <!-- Button trigger modal to connect-->
+      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#loginModal">
+        Se connecter
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!--Main Container-->
+<div class="container w-75 my-5">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-7 mx-auto">
+      <!--Card containing a form to contact the entreprise-->
+      <div class="card">
+        <div class="card-header">
+          Formulaire de Contact
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Remplir ce formulaire pour nous envoyer un message</h5>
+          <form class="form">
+            <div class="form-group">
+              <label for="Nom">
+                Nom*
+              </label>
+              <input type="text" class="ml-3 w-75 form-control contactons" id="Nom">
+              <span id="Nom2" class="text-danger small ml-3"></span>
+            </div>
+            <div class="form-group">
+              <label for="Prenom">
+                Prénom*
+              </label>
+              <input type="text" class="ml-3 w-75 form-control contactons" id="Prenom">
+              <span id="Prenom2" class="text-danger small ml-3"></span>
+            </div>
+            <div class="form-group">
+              <label for="emailF">
+                E-mail*
+              </label>
+              <input type="email" class="ml-3 w-75 form-control contactons" id="emailF">
+              <span id="emailF2" class="text-danger small ml-3"></span>
+            </div>
+            <div class="form-group">
+              <label for="ObjetM">
+                Objet*
+              </label>
+              <input type="text" class="ml-3 w-75 form-control contactons" id="ObjetM">
+              <span id="ObjetM2" class="text-danger small ml-3"></span>
+            </div>
+            <div class="form-group">
+              <label for="Courriel">
+                Message*
+              </label>
+              <textarea rows="10" class="ml-3 w-75 form-control contactons" id="Courriel"></textarea>
+              <span id="Courriel2" class="text-danger small ml-3"></span>
+            </div>
+            <button type="button" id="cliquezMoi" class="btn btn-info ml-3">Soumettre mon message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer bg-dark text-white font-small stylish-color-dark pt-4 mt-auto">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <div class="row">
+      <!-- First col with Description-->
+      <div class="col-md-4 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Qui sommes-nous ?</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Dictumst quisque sagittis purus sit amet volutpat. Phasellus egestas tellus rutrum
+          tellus. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Urna id volutpat lacus laoreet.
+        </p>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <!--Second col with Infos-->
+      <div class="col-md-2 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Infos</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a tabindex="0" class="lien" data-toggle="modal" data-target="#CGVModal">Conditions Générales de Ventes</a>
+          </li>
+          <li>
+            <a tabindex="0" class="lien" data-toggle="modal" data-target="#CGUModal">Conditions Générales d'Utilisations</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="clearfix w-100 d-md-none">
+      <!--Third col with Contacts-->
+      <div class="col-md-2 mx-auto">
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Nous contacter</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="../templates/Contact.html">Contact</a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="https://fr-fr.facebook.com/"><span class="fa fa-facebook-official fa-3x mr-3"
+                                                                                         aria-hidden="true"></span></a><p class="d-inline">Facebook</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/"> ONSENFOU.com</a>
+  </div>
+</footer>
+
+
+
+<!--Login Modal-->
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+     aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!--Title-->
+      <div class="modal-header">
+        <h3>Connexion</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <!--Body-->
+      <!--Form to connect-->
+      <form class="form" role="form" autocomplete="on" id="formLogin" novalidate="" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <!--Dismissing the actual Modal and Opening the registration Modal-->
+            <a tabindex="0" data-dismiss="modal" data-toggle="modal" data-target="#registerModal" class="float-right lien">Nouvel
+              utilisateur?</a>
+            <label for="name">Email</label>
+            <input type="email" class="form-control form-control-lg" name="name" id="name" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd1">Mot de Passe</label>
+            <input type="password" class="form-control form-control-lg" id="pwd1" required autocomplete>
+            <div class="invalid-feedback">Entre ton mot de passe aussi!</div>
+          </div>
+          <!--Checkbox to stay connected-->
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="rememberMe">
+            <label class="custom-control-label" for="rememberMe">Se souvenir de moi</label>
+          </div>
+          <div class="modal-footer mt-5">
+            <div class="form-group">
+              <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Annuler</button>
+              <button type="submit" class="btn btn-info btn-lg float-right" id="btnLogin">Se connecter</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--Registration Modal-->
+<div id="registerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+     aria-labelledby="registerModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Title-->
+      <div class="modal-header">
+        <h3>Créer votre Compte</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <form class="form" role="form" autocomplete="on" id="formRegister" novalidate="" method="POST">
+        <div class="modal-body">
+          <!--Form to create an account-->
+
+          <div class="form-group">
+            <!--Dismissing the actual Modal and Opening the login Modal-->
+            <a tabindex="0" data-dismiss="modal" data-toggle="modal" data-target="#loginModal" class="float-right lien">Déjà
+              enregistré?</a>
+            <label for="fnamer">Nom</label>
+            <input type="text" class="form-control form-control-lg" name="fname" id="fnamer" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="namer">Prénom</label>
+            <input type="text" class="form-control form-control-lg" name="name" id="namer" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control form-control-lg" name="email" id="email" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="address">Addresse</label>
+            <input type="text" class="form-control form-control-lg" name="address" id="address" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="city">Ville</label>
+            <input type="text" class="form-control form-control-lg" name="city" id="city" required autocomplete>
+            <div class="invalid-feedback">Oops, tu as manqué celui là.</div>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Mot de Passe</label>
+            <input type="password" class="form-control form-control-lg" id="pwd" required autocomplete>
+            <div class="invalid-feedback">Entre ton mot de passe aussi!</div>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="CGV">
+            <!--Terms and conditions are clickable and open a modal to read them on top of the actual one-->
+            <label class="custom-control-label" for="CGV">J'accepte les <a tabindex="0" class="lien" data-toggle="modal"
+                                                                           data-target="#CGUModal">Conditions Générales de Ventes</a></label>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="CGU">
+            <!--Terms and conditions are clickable and open a modal to read them on top of the actual one-->
+            <label class="custom-control-label" for="CGU">J'accepte les <a tabindex="0" class="lien" data-toggle="modal" data-target="#CGVModal">Conditions Générales d'Utilisateurs</a></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group py-4">
+            <button class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Annuler</button>
+            <button type="submit" class="btn btn-info btn-lg float-right ml-4" id="btnRegister">S'enregistrer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal CGV-->
+<div class="modal fade" id="CGVModal" tabindex="-1" role="dialog" aria-labelledby="CGVTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Title-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="CGVTitle">Nos Conditions Générales de Ventes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. At varius vel pharetra vel turpis nunc eget lorem dolor. Fermentum dui faucibus in ornare quam
+          viverra orci. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Hendrerit gravida rutrum
+          quisque non tellus orci ac. Facilisi morbi tempus iaculis urna id volutpat. Maecenas ultricies mi eget mauris
+          pharetra et ultrices neque ornare. Sit amet purus gravida quis blandit turpis cursus. Tellus cras adipiscing
+          enim eu turpis egestas pretium aenean. Bibendum enim facilisis gravida neque. In fermentum et sollicitudin ac
+          orci phasellus. Pellentesque adipiscing commodo elit at imperdiet. Elit duis tristique sollicitudin nibh sit
+          amet commodo nulla. Aliquam faucibus purus in massa tempor nec feugiat nisl. Odio aenean sed adipiscing diam
+          donec adipiscing.
+
+          Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Etiam non quam lacus suspendisse
+          faucibus interdum. Congue mauris rhoncus aenean vel elit scelerisque mauris. Interdum velit laoreet id donec
+          ultrices. Consequat nisl vel pretium lectus quam id leo in vitae. Diam donec adipiscing tristique risus. Massa
+          sapien faucibus et molestie ac feugiat sed lectus vestibulum. Pellentesque nec nam aliquam sem et tortor
+          consequat id. Massa massa ultricies mi quis hendrerit dolor magna. Tellus rutrum tellus pellentesque eu
+          tincidunt.
+
+          Ac odio tempor orci dapibus. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant.
+          Sagittis eu volutpat odio facilisis mauris sit amet massa. Consequat semper viverra nam libero justo laoreet.
+          Eu feugiat pretium nibh ipsum consequat nisl vel. Eu feugiat pretium nibh ipsum consequat nisl vel pretium.
+          Nisl condimentum id venenatis a condimentum vitae sapien pellentesque. Fringilla ut morbi tincidunt augue
+          interdum velit euismod in pellentesque. Vitae turpis massa sed elementum tempus egestas sed sed risus. Non
+          enim praesent elementum facilisis leo vel fringilla. Eget lorem dolor sed viverra ipsum.
+
+          Ornare arcu odio ut sem nulla pharetra. Proin libero nunc consequat interdum varius. Sapien nec sagittis
+          aliquam malesuada. Purus in massa tempor nec feugiat nisl. Sagittis aliquam malesuada bibendum arcu vitae
+          elementum curabitur. Quam quisque id diam vel quam elementum pulvinar. Fusce ut placerat orci nulla
+          pellentesque dignissim enim. Morbi blandit cursus risus at ultrices. Sed arcu non odio euismod. Sed elementum
+          tempus egestas sed. Non nisi est sit amet facilisis magna etiam tempor orci. Aenean et tortor at risus viverra
+          adipiscing at in.
+
+          Pharetra et ultrices neque ornare aenean. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac.
+          Libero volutpat sed cras ornare arcu dui vivamus. A scelerisque purus semper eget duis at. Elementum nisi quis
+          eleifend quam adipiscing vitae proin sagittis nisl. Est velit egestas dui id ornare arcu. Ultricies lacus sed
+          turpis tincidunt id aliquet risus feugiat. Commodo sed egestas egestas fringilla phasellus faucibus
+          scelerisque. Id cursus metus aliquam eleifend mi in. Purus sit amet volutpat consequat mauris nunc congue
+          nisi. Nec tincidunt praesent semper feugiat nibh sed pulvinar.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-info">Accepter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal CGU-->
+<div class="modal fade" id="CGUModal" tabindex="-1" role="dialog" aria-labelledby="CGUTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Title-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="CGUTitle">Nos Conditions Générales d'Utilisateurs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. At varius vel pharetra vel turpis nunc eget lorem dolor. Fermentum dui faucibus in ornare quam
+          viverra orci. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Hendrerit gravida rutrum
+          quisque non tellus orci ac. Facilisi morbi tempus iaculis urna id volutpat. Maecenas ultricies mi eget mauris
+          pharetra et ultrices neque ornare. Sit amet purus gravida quis blandit turpis cursus. Tellus cras adipiscing
+          enim eu turpis egestas pretium aenean. Bibendum enim facilisis gravida neque. In fermentum et sollicitudin ac
+          orci phasellus. Pellentesque adipiscing commodo elit at imperdiet. Elit duis tristique sollicitudin nibh sit
+          amet commodo nulla. Aliquam faucibus purus in massa tempor nec feugiat nisl. Odio aenean sed adipiscing diam
+          donec adipiscing.
+
+          Cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla. Etiam non quam lacus suspendisse
+          faucibus interdum. Congue mauris rhoncus aenean vel elit scelerisque mauris. Interdum velit laoreet id donec
+          ultrices. Consequat nisl vel pretium lectus quam id leo in vitae. Diam donec adipiscing tristique risus. Massa
+          sapien faucibus et molestie ac feugiat sed lectus vestibulum. Pellentesque nec nam aliquam sem et tortor
+          consequat id. Massa massa ultricies mi quis hendrerit dolor magna. Tellus rutrum tellus pellentesque eu
+          tincidunt.
+
+          Ac odio tempor orci dapibus. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant.
+          Sagittis eu volutpat odio facilisis mauris sit amet massa. Consequat semper viverra nam libero justo laoreet.
+          Eu feugiat pretium nibh ipsum consequat nisl vel. Eu feugiat pretium nibh ipsum consequat nisl vel pretium.
+          Nisl condimentum id venenatis a condimentum vitae sapien pellentesque. Fringilla ut morbi tincidunt augue
+          interdum velit euismod in pellentesque. Vitae turpis massa sed elementum tempus egestas sed sed risus. Non
+          enim praesent elementum facilisis leo vel fringilla. Eget lorem dolor sed viverra ipsum.
+
+          Ornare arcu odio ut sem nulla pharetra. Proin libero nunc consequat interdum varius. Sapien nec sagittis
+          aliquam malesuada. Purus in massa tempor nec feugiat nisl. Sagittis aliquam malesuada bibendum arcu vitae
+          elementum curabitur. Quam quisque id diam vel quam elementum pulvinar. Fusce ut placerat orci nulla
+          pellentesque dignissim enim. Morbi blandit cursus risus at ultrices. Sed arcu non odio euismod. Sed elementum
+          tempus egestas sed. Non nisi est sit amet facilisis magna etiam tempor orci. Aenean et tortor at risus viverra
+          adipiscing at in.
+
+          Pharetra et ultrices neque ornare aenean. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac.
+          Libero volutpat sed cras ornare arcu dui vivamus. A scelerisque purus semper eget duis at. Elementum nisi quis
+          eleifend quam adipiscing vitae proin sagittis nisl. Est velit egestas dui id ornare arcu. Ultricies lacus sed
+          turpis tincidunt id aliquet risus feugiat. Commodo sed egestas egestas fringilla phasellus faucibus
+          scelerisque. Id cursus metus aliquam eleifend mi in. Purus sit amet volutpat consequat mauris nunc congue
+          nisi. Nec tincidunt praesent semper feugiat nibh sed pulvinar.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-info">Accepter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script src="../libs/js/Contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+a{
+  cursor: pointer;
+}
+.lien{
+  color:#007bff!important;
+}
+.lien:hover{
+  text-decoration-line: underline!important;
+}
+.modal-body{
+  height:60vh;
+  overflow-y:auto;
+}
+#logo{
+  width:75px;
+  height:75px;
+}
