@@ -58,11 +58,13 @@ $("#resetons").on('click', function() {
     });
     $("#Duree").val(30);
     //reset the marker placed by the user
-    createdMarker.setMap(null);
-    createdMarker = "";
-    //reset the diplayed path between the created marker and the selected one
-    directionsDisplay.setMap(null);
-    directionsDisplay = "";
+    if(createdMarker != ""){
+        createdMarker.setMap(null);
+        createdMarker = "";
+        //reset the diplayed path between the created marker and the selected one
+        directionsDisplay.setMap(null);
+        directionsDisplay = "";
+    }
     //reshow all markers
     myMarkers();
     //delete the click listener, the user cannot place a marker anymore
@@ -296,7 +298,7 @@ function myMarkers(bornVal){
             });
         });
 
-        
+
         for (let j = 0; j < markers.length; j++) {
             //Open InfoWindow onClick
             /*markers[j].addListener('click', function() {
